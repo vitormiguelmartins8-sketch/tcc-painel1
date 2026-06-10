@@ -1,4 +1,45 @@
 body{
+    background-color: white ;
+    display: flex;
+    align-items: center;
+    justify-content:center;
+    bottom:20px;
+    height: 850px;
 
+}
+
+.container{
+    display: inline-block;
+    justify-content:center;
+}
+
+
+.tela{
+    background: linear-gradient(to right, #3498db, cyan);
+    width: 550px;
+    height: 550px ;
+    border-radius: 20px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    position: flex;
+    
     
 }
+
+#email{
+    border-radius: 10px;
+    background-color: linear-gradient(to left black , white) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#senha{
+    border-radius: 10px;
+    background-color: linear-gradient(to left black , white) ;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
