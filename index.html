@@ -1,33 +1,79 @@
 <!DOCTYPE html>
-    <html class="no-js"> 
-<html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title></title>
-        <meta name="description" content="">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <link rel="stylesheet" href="style.css">
-         <script src="" async defer></script>
-    </head>
-    <body>
-        
-        <div class="container">
-            <div class="tela">
-                <label for="gmail">gmail</label>
-                <input 
-                type="email"
-                id="email"
-                name="email">
-                
-                <label for="senha">senha</label>
-                <input 
-                type="senha"
-                id="senha"
-                name="senha">
-            </div>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="transition-overlay" id="overlay"></div>
+
+    <div class="container">
+
+        <div class="pagina">
+            <video autoplay muted loop>
+                <source src="seu-video.mp4" type="video/mp4">
+            </video>
         </div>
 
-        <script src="" async defer></script>
-    </body>
-</html>
+        <div class="tela">
+            <div id="tela2" class="caixa-branca-login">
+                
+                <div class="conteudo-login ativo" id="conteudoAluno">
+                    <h1>Login Alunos</h1>
+                    <p>Bem-vindo, aluno!</p>
+                    
+                    <form id="formAluno" action="aluno.html">
+                        <div class="input-grupo">
+                            <label for="ra">RA</label>
+                            <input type="text" id="ra" name="ra" required placeholder="Digite seu RA">
+                        </div>
+
+                        <div class="input-grupo">
+                            <label for="senhaAluno">Senha</label>
+                            <input type="password" id="senhaAluno" name="senhaAluno" required placeholder="••••••••">
+                        </div>
+                        
+                        <p class="msg-erro" id="msgAluno"></p>
+
+                        <button type="submit" class="btn-principal">Logar como Aluno</button>
+                    </form>
+                    
+                    <button type="button" class="btn-link-alternar" id="irParaProfessor">Sou Professor ➔</button>
+                </div>
+
+                <div class="conteudo-login" id="conteudoProfessor">
+                    <h1>Login Professores</h1>
+                    <p>Bem-vindo , professor!</p>
+                    
+                    <form id="formProfessor" action="professor.html">
+                        <div class="input-grupo">
+                            <label for="rg">RG</label>
+                            <input type="text" id="rg" name="rg" required placeholder="Digite seu RG">
+                        </div>
+
+                        <div class="input-grupo">
+                            <label for="senhaProf">Senha</label>
+                            <input type="password" id="senhaProf" name="senhaProf" required placeholder="••••••••">
+                        </div>
+                        
+                        <p class="msg-erro" id="msgProf"></p>
+
+                        <button type="submit" class="btn-principal">Logar como Professor</button>
+                    </form>
+                    
+                    <button type="button" class="btn-link-alternar" id="irParaAluno">◀ Sou Aluno</button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="animaçao.js" defer></script>
+</body>
+
