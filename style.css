@@ -1,95 +1,182 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body{
+body {
     height: 100vh;
     background: linear-gradient(black, gray);
+    overflow: hidden;
 }
 
-.container{
+.container {
     display: flex;
     width: 100%;
     height: 100vh;
 }
 
-/* Lado esquerdo */
-.pagina{
-    width: 50%;
-    background: linear-gradient(to right, white, whitesmoke);
-
+.pagina {
+    width: 35%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Lado direito */
-.tela{
-    width: 70%;
-    background: linear-gradient(to right, #3498db,);
+.pagina video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
 
+.tela {
+    width: 65%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('https://thumbs.dreamstime.com/b/black-white-abstract-painted-background-wallpaper-texture-modern-art-creative-abstract-hand-painted-background-wallpaper-121591379.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.caixa-branca-login {
+    background-color: rgba(255, 255, 255, 0.95);
+    width: 420px;
+    min-height: 500px;
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.conteudo-login {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.conteudo-login.ativo {
+    display: flex !important;
+    opacity: 1 !important;
+}
+
+.conteudo-login h1 {
+    color: #111;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+.conteudo-login p {
+    color: #666;
+    font-family: 'Segoe UI', sans-serif;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.conteudo-login form {
+    width: 100%;
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 15px;
+    gap: 18px;
 }
 
-#tela2{
+.input-grupo {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border-radius: 10px;
-    padding: 20px;
-    gap: 15px;
-    background: linear-gradient(to right, black, gray);
-
+    width: 100%;
+    gap: 6px;
 }
 
-input{
-    width: 300px;
-    height: 40px;
-    border-radius: 10px;
-    border: none;
-    padding: 10px;
+.conteudo-login label {
+    color: #333;
+    font-size: 14px;
+    font-weight: 600;
+    font-family: 'Segoe UI', sans-serif;
 }
 
-button{
-    width: 300px;
-    height: 40px;
-    border-radius: 10px;
+.conteudo-login input {
+    width: 100%;
+    height: 44px;
+    border: 1.5px solid #e0e0e0;
+    background-color: #fafafa;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 15px;
+    color: #222;
+    transition: all 0.3s ease;
+}
+
+.conteudo-login input:focus {
+    border-color: #3498db;
+    background-color: #fff;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.15);
+    outline: none;
+}
+
+.btn-principal {
+    width: 100%;
+    height: 46px;
+    border-radius: 8px;
     border: none;
-    background: #2563eb;
+    background-color: #111;
     color: white;
     font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.2s ease;
+    margin-top: 10px;
 }
 
-label{
-    color: white;
-    font-size: 20px;
-    font-family: Arial, Helvetica, sans-serif;
+.btn-principal:hover {
+    background-color: #333;
 }
 
-#email,
-#senha{
-    border-radius: 10px;
+.btn-link-alternar {
+    background: none;
+    border: none;
+    color: #3498db;
+    margin-top: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 14px;
+    font-family: 'Segoe UI', sans-serif;
+    transition: color 0.2s;
 }
 
-.animate-me {
+.btn-link-alternar:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.msg-erro {
+    font-size: 13px;
+    font-family: sans-serif;
+    text-align: center;
+    min-height: 18px;
+}
+
+.transition-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #000;
+    z-index: 9999;
+    pointer-events: none;
     opacity: 0;
-    transform: translateY(26px) scale(0.96);
-    filter: blur(6px);
-    transition: opacity 1.6s cubic-bezier(0.19, 1, 0.22, 1),
-                transform 1.6s cubic-bezier(0.19, 1, 0.22, 1),
-                filter 1.6s cubic-bezier(0.19, 1, 0.22, 1);
+    transition: opacity 0.5s ease-in-out;
 }
 
-.animate-me.show {
+.transition-overlay.is-active {
+    pointer-events: all;
     opacity: 1;
-    transform: translateY(0) scale(1);
-    filter: blur(0);
 }
