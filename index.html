@@ -23,51 +23,55 @@
 
         <div class="tela">
             <div id="tela2" class="caixa-branca-login">
-                
+
                 <div class="conteudo-login ativo" id="conteudoAluno">
                     <h1>Login Alunos</h1>
                     <p>Bem-vindo, aluno!</p>
-                    
-                    <form id="formAluno" action="aluno.html">
+
+                    <form id="formAluno">
                         <div class="input-grupo">
-                            <label for="ra">RA</label>
-                            <input type="text" id="ra" name="ra" required placeholder="Digite seu RA">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required placeholder="Digite seu email">
                         </div>
 
                         <div class="input-grupo">
                             <label for="senhaAluno">Senha</label>
                             <input type="password" id="senhaAluno" name="senhaAluno" required placeholder="••••••••">
                         </div>
-                        
+
                         <p class="msg-erro" id="msgAluno"></p>
 
                         <button type="submit" class="btn-principal">Logar como Aluno</button>
                     </form>
-                    
+
                     <button type="button" class="btn-link-alternar" id="irParaProfessor">Sou Professor ➔</button>
+                    <br>
+                    <a href="cadastro.html" class="btn-link-alternar">Criar conta</a>
                 </div>
 
                 <div class="conteudo-login" id="conteudoProfessor">
                     <h1>Login Professores</h1>
                     <p>Bem-vindo , professor!</p>
-                    
-                    <form id="formProfessor" action="professor.html">
+
+                    <form id="formProfessor">
                         <div class="input-grupo">
-                            <label for="rg">RG</label>
-                            <input type="text" id="rg" name="rg" required placeholder="Digite seu RG">
+                            <label for="cpf">CPF</label>
+                            <input type="text" id="cpf" name="cpf" required placeholder="Digite seu CPF">
                         </div>
 
                         <div class="input-grupo">
                             <label for="senhaProf">Senha</label>
                             <input type="password" id="senhaProf" name="senhaProf" required placeholder="••••••••">
                         </div>
-                        
+
                         <p class="msg-erro" id="msgProf"></p>
 
                         <button type="submit" class="btn-principal">Logar como Professor</button>
                     </form>
-                    
+
                     <button type="button" class="btn-link-alternar" id="irParaAluno">◀ Sou Aluno</button>
+                    <br>
+                    <a href="cadastro.html" class="btn-link-alternar">Criar conta</a>
                 </div>
 
             </div>
@@ -77,3 +81,4 @@
     <script src="animaçao.js" defer></script>
 </body>
 
+</html>

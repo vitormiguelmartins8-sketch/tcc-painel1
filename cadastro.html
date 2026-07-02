@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Criar Conta</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="tela" style="width: 100%;">
+            <div class="caixa-branca-login">
+
+                <div class="conteudo-login ativo" id="cadastroAluno">
+                    <h1>Criar Conta - Aluno</h1>
+                    <p>Preencha seus dados para se cadastrar</p>
+
+                    <form id="formCadastroAluno">
+                        <div class="input-grupo">
+                            <label for="nomeAluno">Nome completo</label>
+                            <input type="text" id="nomeAluno" required placeholder="Digite seu nome completo">
+                        </div>
+
+                        <div class="input-grupo">
+                            <label for="emailCadastro">E-mail</label>
+                            <input type="email" id="emailCadastro" required placeholder="Digite seu e-mail">
+                        </div>
+
+                        <div class="input-grupo">
+                            <label for="senhaCadastroAluno">Senha</label>
+                            <input type="password" id="senhaCadastroAluno" required minlength="6" placeholder="Minimo 6 caracteres">
+                        </div>
+
+                        <p class="msg-erro" id="msgCadastroAluno"></p>
+
+                        <button type="submit" class="btn-principal">Criar Conta</button>
+                    </form>
+
+                    <button type="button" class="btn-link-alternar" id="irParaCadastroProfessor">Sou Professor</button>
+                    <br>
+                    <a href="index.html" class="btn-link-alternar">Ja tenho conta</a>
+                </div>
+
+                <div class="conteudo-login" id="cadastroProfessor">
+                    <h1>Criar Conta - Professor</h1>
+                    <p>Preencha seus dados para se cadastrar</p>
+
+                    <form id="formCadastroProfessor">
+                        <div class="input-grupo">
+                            <label for="nomeProf">Nome completo</label>
+                            <input type="text" id="nomeProf" required placeholder="Digite seu nome completo">
+                        </div>
+
+                        <div class="input-grupo">
+                            <label for="cpfCadastro">CPF</label>
+                            <input type="text" id="cpfCadastro" required placeholder="Digite seu CPF">
+                        </div>
+
+                        <div class="input-grupo">
+                            <label for="telefoneCadastro">Telefone</label>
+                            <input type="text" id="telefoneCadastro" placeholder="Digite seu telefone (opcional)">
+                        </div>
+
+                        <div class="input-grupo">
+                            <label for="senhaCadastroProf">Senha</label>
+                            <input type="password" id="senhaCadastroProf" required minlength="6" placeholder="Minimo 6 caracteres">
+                        </div>
+
+                        <p class="msg-erro" id="msgCadastroProfessor"></p>
+
+                        <button type="submit" class="btn-principal">Criar Conta</button>
+                    </form>
+
+                    <button type="button" class="btn-link-alternar" id="irParaCadastroAluno">Sou Aluno</button>
+                    <br>
+                    <a href="index.html" class="btn-link-alternar">Ja tenho conta</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const API_URL = "https://suasala.onrender.com";
+
+        const cadastroAluno = document.getElementById("cadastroAluno");
+        const cadastroProfessor = document.getElementById("cadastroProfessor");
+
+        document.getElementById("irParaCadastroProfessor").addEventListener("click", () => {
+            cadastroAluno.classList.remove("ativo");
+            cadastroProfessor.classList.add("ativo");
+        });
+
+        document.getElementById("irParaCadastroAluno").addEventListener("click", () => {
+            cadastroProfessor.classList.remove("ativo");
+            cadastroAluno.classList.add("ativo");
+        });
+
+        document.getElementById("formCadastroAluno").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const nomeCompleto = document.getElementById("nomeAluno").value;
+            const email = document.getElementById("emailCadastro").value;
+            const senha = document.getElementById("senhaCadastroAluno").value;
+            const msg = document.getElementById("msgCadastroAluno");
+
+            msg.textContent = "Criando conta...";
+            msg.style.color = "#d35400";
+
+            try {
+                const resposta = await fetch(API_URL + "/cadastro", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ tipo: "aluno", nomeCompleto: nomeCompleto, email: email, senha: senha })
+                });
+                const dados = await resposta.json();
+
+                if (!resposta.ok) {
+                    msg.textContent = dados.erro;
+                    msg.style.color = "red";
+                } else {
+                    msg.textContent = "Conta criada! Redirecionando...";
+                    msg.style.color = "green";
+                    setTimeout(() => { window.location.href = "index.html"; }, 1500);
+                }
+            } catch (erro) {
+                msg.textContent = "Erro ao conectar no servidor.";
+                msg.style.color = "red";
+            }
+        });
+
+        document.getElementById("formCadastroProfessor").addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const nomeCompleto = document.getElementById("nomeProf").value;
+            const cpf = document.getElementById("cpfCadastro").value;
+            const telefone = document.getElementById("telefoneCadastro").value;
+            const senha = document.getElementById("senhaCadastroProf").value;
+            const msg = document.getElementById("msgCadastroProfessor");
+
+            msg.textContent = "Criando conta...";
+            msg.style.color = "#d35400";
+
+            try {
+                const resposta = await fetch(API_URL + "/cadastro", {
+                    method: "POST",
+                    headers: { "Content-Type": "application/json" },
+                    body: JSON.stringify({ tipo: "professor", nomeCompleto: nomeCompleto, cpf: cpf, telefone: telefone, senha: senha })
+                });
+                const dados = await resposta.json();
+
+                if (!resposta.ok) {
+                    msg.textContent = dados.erro;
+                    msg.style.color = "red";
+                } else {
+                    msg.textContent = "Conta criada! Redirecionando...";
+                    msg.style.color = "green";
+                    setTimeout(() => { window.location.href = "index.html"; }, 1500);
+                }
+            } catch (erro) {
+                msg.textContent = "Erro ao conectar no servidor.";
+                msg.style.color = "red";
+            }
+        });
+    </script>
+</body>
+
+</html>
