@@ -1,0 +1,32 @@
+{
+  "name": "trabalho-anual",
+  "version": "1.0.0",
+  "description": "",
+  "main": "animaçao.js",
+  "dependencies": {
+    "@supabase/server": "^1.2.0",
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "express": "^5.2.1",
+    "node-addon-api": "^8.9.0",
+    "node-gyp-build": "^4.8.4",
+    "pg": "^8.22.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vitormiguelmartins8-sketch/tcc-paneil.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/vitormiguelmartins8-sketch/tcc-paneil/issues"
+  },
+  "homepage": "https://github.com/vitormiguelmartins8-sketch/tcc-paneil#readme"
+}
