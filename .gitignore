@@ -3,4 +3,4 @@ node_modules/
 server.js
 package-lock.json
 package.json
-versel.json
+versel.js
