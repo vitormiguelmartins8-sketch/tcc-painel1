@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const irParaProfessor = document.getElementById("irParaProfessor");
     const irParaAluno = document.getElementById("irParaAluno");
 
-    const API_URL = "http://localhost:3000";
+    const API_URL = "https://suasala.onrender.com";
 
     function alternarTela(telaParaEsconder, telaParaMostrar) {
         telaParaEsconder.style.opacity = "0";
